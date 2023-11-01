@@ -1,5 +1,7 @@
 import express from 'express';
 
+import '@/shared/config/connection';
+
 const app = express();
 
 app.use(express.json());
