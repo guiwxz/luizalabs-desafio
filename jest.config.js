@@ -9,4 +9,7 @@ module.exports = {
     '!**/*.spec.ts',
     '!**/node_modules/**'
   ],
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>/src/$1"
+  }
 };
