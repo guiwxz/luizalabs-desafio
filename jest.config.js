@@ -6,7 +6,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
-    '!**/*.spec.ts', // Exclui arquivos de teste da cobertura
-    '!**/node_modules/**' // Exclui arquivos em node_modules da cobertura
+    '!**/*.spec.ts',
+    '!**/node_modules/**'
   ],
 };
