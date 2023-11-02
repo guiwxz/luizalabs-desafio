@@ -84,20 +84,22 @@ export class ImportsDataServices {
 
     const createdOrders = await OrderModel.find({ _id: { $in: ids } });
 
-    await UserModel.collection.bulkWrite(
-      createdOrders.map((order) => ({
-        updateOne: {
-          filter: { user_id: order.user_id },
-          update: {
-            $setOnInsert: {
-              user_id: users[order.user_id!].user_id,
-              name: users[order.user_id!].name,
+    if (createdOrders.length !== 0) {
+      await UserModel.collection.bulkWrite(
+        createdOrders.map((order) => ({
+          updateOne: {
+            filter: { user_id: order.user_id },
+            update: {
+              $setOnInsert: {
+                user_id: users[order.user_id!].user_id,
+                name: users[order.user_id!].name,
+              },
+              $push: { orders: order._id } as any,
             },
-            $push: { orders: order._id } as any,
+            upsert: true,
           },
-          upsert: true,
-        },
-      })),
-    );
+        })),
+      );
+    }
   }
 }
