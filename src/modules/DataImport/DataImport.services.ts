@@ -7,10 +7,16 @@ import {
 } from './DataImport.types';
 import { OrderModel } from '@/models/Order';
 import { UserModel } from '@/models/User';
+import { fileLineSchema } from './DataImport.rules';
+import { AppError } from '@/shared/errors/AppErrors';
 
 export class ImportsDataServices {
   public parseData(data: ParseDataServicePayload): ParsedData[] {
     const lines = data.split('\n').filter((line) => line.trim() !== '');
+
+    if (!fileLineSchema.safeParse(lines[0]).success) {
+      throw new AppError('Arquivo mal formatado', 400);
+    }
 
     return lines.map((line) => ({
       userId: Number(line.substring(0, 10).trim()),
