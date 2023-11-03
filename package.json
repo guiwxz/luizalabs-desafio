@@ -10,7 +10,9 @@
     "husky:prepare": "husky install",
     "test": "jest --detectOpenHandles --forceExit --runInBand",
     "test:ci": "jest --detectOpenHandles --forceExit --runInBand --coverage",
-    "lint": "eslint src --ext js,ts"
+    "lint": "eslint src --ext js,ts",
+    "docker:up": "docker-compose -f docker/docker-compose.yml --project-directory ./ up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml --project-directory ./ down"
   },
   "devDependencies": {
     "@jest-mock/express": "^2.0.2",

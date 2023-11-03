@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo:7.0-rc
+    container_name: labs_mongo
+    ports:
+      - '${MONGODB_PORT}:27017'
+    volumes:
+      - labs_mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGODB_USER}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGODB_PASSWORD}'
+    env_file:
+      - './.env'
+volumes:
+  labs_mongo_data:
