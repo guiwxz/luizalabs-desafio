@@ -9,12 +9,12 @@ export class OrdersServices {
   public async listOrders(
     filtersPayload: ListOrdersServicePayload,
   ): Promise<ListOrdersServiceReturn[]> {
-    const { finalDate, initialDate, order_id } = filtersPayload;
+    const { finalDate, initialDate, orderId } = filtersPayload;
 
     const filters: FilterQuery<typeof UserModel> = {};
 
-    if (order_id) {
-      filters['orders.order_id'] = Number(order_id);
+    if (orderId) {
+      filters['orders.order_id'] = Number(orderId);
     }
 
     if (initialDate && finalDate) {

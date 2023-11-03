@@ -1,5 +1,8 @@
+import { z } from 'zod';
+import { listOrdersSchema } from './Orders.rules';
+
 export type ListOrdersServicePayload = {
-  order_id?: number;
+  orderId?: number;
   finalDate?: Date;
   initialDate?: Date;
 };
@@ -16,3 +19,7 @@ export type ListOrdersServiceReturn = {
     }[];
   }[];
 };
+
+export type ListOrdersRequestQuery = z.infer<
+  typeof listOrdersSchema.shape.query
+>;

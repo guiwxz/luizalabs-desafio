@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const listOrdersSchema = z.object({
   query: z.object({
-    order_id: z.number({ coerce: true }).optional(),
+    orderId: z.number({ coerce: true }).optional(),
     initialDate: z
       .string()
       .regex(/^(?:\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/)
