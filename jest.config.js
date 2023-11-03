@@ -7,7 +7,10 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!**/*.spec.ts',
-    '!**/node_modules/**'
+    '!**/node_modules/**',
+    '!src/test/**',
+    '!src/shared/config/**',
+    '!src/index.ts'
   ],
   moduleNameMapper: {
     "@/(.*)": "<rootDir>/src/$1"
