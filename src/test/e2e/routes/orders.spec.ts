@@ -2,7 +2,7 @@ import { app } from '@/app';
 import { OrderModel } from '@/models/Order';
 import { UserModel } from '@/models/User';
 import { ordersData, usersData } from '@/test/mocks/ordersData';
-import { setupDB } from '@/test/testSetup';
+import { setupDB } from '@/test/dbSetup';
 import request from 'supertest';
 
 describe('GET /orders', () => {

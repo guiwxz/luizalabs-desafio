@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
+import { generateConnectionUrl } from '../utils/generateConnectionUrl';
 
 // cria conexão com o MongoDB
 export default mongoose
-  .connect(process.env.MONGODB_CONNECTION_URL as string)
+  .connect(generateConnectionUrl(), {
+    dbName: process.env.MONGODB_DB,
+  })
   .then(() => {
     console.log('conectou no banco');
   })

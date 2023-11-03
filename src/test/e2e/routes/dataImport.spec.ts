@@ -1,6 +1,6 @@
 import { app } from '@/app';
 import { rawLegacyData } from '@/test/mocks/rawLegacyData';
-import { setupDB } from '@/test/testSetup';
+import { setupDB } from '@/test/dbSetup';
 import request from 'supertest';
 
 describe('POST /imports', () => {

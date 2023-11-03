@@ -25,4 +25,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run tests
-        run: yarn test:ci
+        run: |
+          touch .env.test
+          echo "MONGODB_CONNECTION_URL=${{secrets.MONGODB_CONNECTION_URL}}" >> .env.test
+          yarn test:ci

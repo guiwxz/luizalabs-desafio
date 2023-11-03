@@ -2,7 +2,7 @@ import { OrdersServices } from './Orders.services';
 import { UserModel } from '@/models/User';
 import { OrderModel } from '@/models/Order';
 import { ordersData, usersData } from '../../test/mocks/ordersData';
-import { setupDB } from '@/test/testSetup';
+import { setupDB } from '@/test/dbSetup';
 
 describe('ListOrders Service', () => {
   setupDB();
