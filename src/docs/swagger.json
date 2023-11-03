@@ -52,7 +52,7 @@
         "tags": ["Orders"],
         "parameters": [
           {
-            "name": "order_id",
+            "name": "orderId",
             "in": "query",
             "description": "ID do pedido",
             "required": false,
