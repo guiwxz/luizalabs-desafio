@@ -15,6 +15,32 @@
     }
   ],
   "paths": {
+    "/healthcheck": {
+      "get": {
+        "description": "Rota para verificar saúde do sistema",
+        "tags": ["Health check"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "type": "string"
+                    },
+                    "api": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/import": {
       "post": {
         "summary": "Importar dados",
@@ -40,7 +66,7 @@
             "description": "Arquivos processados com sucesso."
           },
           "400": {
-            "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "description": "Tipo de arquivo não permitido."
           }
         }
       }
