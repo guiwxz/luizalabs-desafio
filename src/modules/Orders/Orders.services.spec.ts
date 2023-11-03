@@ -33,7 +33,7 @@ describe('ListOrders Service', () => {
 
     const ordersServices = new OrdersServices();
     const orders = await ordersServices.listOrders({
-      order_id: orderId,
+      orderId,
     });
 
     expect(orders).toContainEqual(
